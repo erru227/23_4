@@ -14,3 +14,8 @@ async function new_file(){
     const response = await fetch("/mkfldr/" + name);
     output.textContent = await response.text();
 }
+
+async function show_files() {
+    const response = await fetch("/files");
+    output.innerText = await response.text();
+}
