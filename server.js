@@ -12,10 +12,12 @@ const server = http.createServer((req, res) => {
         fs.mkdir(name, (error) => {
             res.end(error ? "Error: " + error.message : "Folder " + name + " made");
         });
-    } else if (req.url.startsWith('/mkfldr/')) {
+    } else if (req.url.startsWith('/mkfile/')) {
         const name = req.url.split('/')[2];
-        fs.writeFileSync(name, "", (error) => {
-            res.end(error ? "Error: " + error.message : "Folder " + name + " made");
+        //{ flag: "wx" } makes this fail if the file exists
+        //That prevents file overwriting
+        fs.writeFile(name, "", { flag: "wx" }, (error) => {
+            res.end(error ? "Error: " + error.message : "File " + name + " made");
         });
     }else if (req.url === '/files') {
         fs.access('.', (error) => {
