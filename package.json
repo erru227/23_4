@@ -1,7 +1,7 @@
 {
-    "name": "nodejs-listen-example",
+    "name": "nodejs-fs-example",
     "version": "1.0.0",
-    "description": "Used to showcase basic server launch functionality",
+    "description": "Used to showcase basic server file read functionality",
     "scripts": {
         "start": "node server.js"
     },
