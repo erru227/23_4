@@ -1,0 +1,13 @@
+{
+    "name": "nodejs-listen-example",
+    "version": "1.0.0",
+    "description": "Used to showcase basic server launch functionality",
+    "scripts": {
+        "start": "node server.js"
+    },
+    "author": "Your Name",
+    "repository": {
+        "type": "git",
+        "url": "Link Here"
+    }
+}
