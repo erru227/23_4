@@ -9,7 +9,7 @@ async function new_directory(){
     output.textContent = await response.text();
 }
 
-function new_file(){
+async function new_file(){
     const name = document.getElementById("name").value;
     const response = await fetch("/mkfldr/" + name);
     output.textContent = await response.text();
