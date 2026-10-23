@@ -12,6 +12,11 @@ const server = http.createServer((req, res) => {
         fs.mkdir(name, (error) => {
             res.end(error ? "Error: " + error.message : "Folder " + name + " made");
         });
+    } else if (req.url.startsWith('/mkfldr/')) {
+        const name = req.url.split('/')[2];
+        fs.writeFileSync(name, "", (error) => {
+            res.end(error ? "Error: " + error.message : "Folder " + name + " made");
+        });
     } else {
         res.writeHead(200, { 'Content-Type': 'text/html' });
         res.end(fs.readFileSync('index.html'));
