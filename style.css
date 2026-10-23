@@ -3,3 +3,12 @@ body {
     font-family: "Lucida Console", "Courier New", monospace;
     text-align: center;
 }
+
+button,select,option,input[type="text"],[type="number"]{
+    font-size:28px;
+}
+
+#output{
+    border: 3px double;
+    border-radius: 5px;
+}
