@@ -17,6 +17,14 @@ const server = http.createServer((req, res) => {
         fs.writeFileSync(name, "", (error) => {
             res.end(error ? "Error: " + error.message : "Folder " + name + " made");
         });
+    }else if (req.url === '/files') {
+        fs.access('.', (error) => {
+            if (error) {
+                res.end("Cannot access directory");
+            } else {
+                res.end(fs.readdirSync('.', { recursive: true }).join("\n"));
+            }
+            });
     } else {
         res.writeHead(200, { 'Content-Type': 'text/html' });
         res.end(fs.readFileSync('index.html'));
