@@ -5,8 +5,13 @@ const server = http.createServer((req, res) => {
     if (req.url === '/style.css') {
         res.writeHead(200, { 'Content-Type': 'text/css' });
         res.end(fs.readFileSync('style.css'));
-    }else if (req.url === '/script.js') {
+    } else if (req.url === '/script.js') {
         res.end(fs.readFileSync('script.js'));
+    } else if (req.url.startsWith('/mkdir/')) {
+        const name = req.url.split('/')[2];
+        fs.mkdir(name, (error) => {
+            res.end(error ? "Error: " + error.message : "Folder " + name + " made");
+        });
     } else {
         res.writeHead(200, { 'Content-Type': 'text/html' });
         res.end(fs.readFileSync('index.html'));
