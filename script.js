@@ -11,7 +11,7 @@ async function new_directory(){
 
 async function new_file(){
     const name = document.getElementById("name").value;
-    const response = await fetch("/mkfldr/" + name);
+    const response = await fetch("/mkfile/" + name);
     output.textContent = await response.text();
 }
 
